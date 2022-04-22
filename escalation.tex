@@ -1,0 +1,704 @@
+\documentclass[
+	11pt, % Set the default font size, options include: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+	%t, % Uncomment to vertically align all slide content to the top of the slide, rather than the default centered
+	%aspectratio=169, % Uncomment to set the aspect ratio to a 16:9 ratio which matches the aspect ratio of 1080p and 4K screens and projectors
+]{beamer}
+
+\graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
+
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule for better rules in tables
+
+%----------------------------------------------------------------------------------------
+%	SELECT LAYOUT THEME
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with a number of default layout themes which change the colors and layouts of slides. Below is a list of all themes available, uncomment each in turn to see what they look like.
+
+% \usetheme{default}
+% \usetheme{AnnArbor}
+% \usetheme{Antibes}  % good
+% \usetheme{Bergen}
+% \usetheme{Berkeley}
+% \usetheme{Berlin}
+% \usetheme{Boadilla}  % good
+% \usetheme{CambridgeUS}
+% \usetheme{Copenhagen}
+% \usetheme{Darmstadt}  % good
+% \usetheme{Dresden}
+\usetheme{Frankfurt}   % good
+% \usetheme{Goettingen}
+% \usetheme{Hannover}
+% \usetheme{Ilmenau}
+% \usetheme{JuanLesPins}
+% \usetheme{Luebeck}
+% \usetheme{Madrid}
+% \usetheme{Malmoe}
+% \usetheme{Marburg}
+% \usetheme{Montpellier}
+% \usetheme{PaloAlto}
+% \usetheme{Pittsburgh}
+% \usetheme{Rochester}
+% \usetheme{Singapore}
+% \usetheme{Szeged}
+% \usetheme{Warsaw}
+
+%----------------------------------------------------------------------------------------
+%	SELECT COLOR THEME
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with a number of color themes that can be applied to any layout theme to change its colors. Uncomment each of these in turn to see how they change the colors of your selected layout theme.
+
+% \usecolortheme{albatross}
+% \usecolortheme{beaver}
+% \usecolortheme{beetle}
+% \usecolortheme{crane}
+% \usecolortheme{dolphin}  % good
+% \usecolortheme{dove}
+% \usecolortheme{fly}
+% \usecolortheme{lily}
+% \usecolortheme{monarca}
+% \usecolortheme{seagull}
+% \usecolortheme{seahorse}  % good
+% \usecolortheme{spruce}
+% \usecolortheme{whale}
+% \usecolortheme{wolverine}
+
+%----------------------------------------------------------------------------------------
+%	SELECT FONT THEME & FONTS
+%----------------------------------------------------------------------------------------
+
+% Beamer comes with several font themes to easily change the fonts used in various parts of the presentation. Review the comments beside each one to decide if you would like to use it. Note that additional options can be specified for several of these font themes, consult the beamer documentation for more information.
+
+\usefonttheme{default} % Typeset using the default sans serif font
+%\usefonttheme{serif} % Typeset using the default serif font (make sure a sans font isn't being set as the default font if you use this option!)
+%\usefonttheme{structurebold} % Typeset important structure text (titles, headlines, footlines, sidebar, etc) in bold
+%\usefonttheme{structureitalicserif} % Typeset important structure text (titles, headlines, footlines, sidebar, etc) in italic serif
+%\usefonttheme{structuresmallcapsserif} % Typeset important structure text (titles, headlines, footlines, sidebar, etc) in small caps serif
+
+%------------------------------------------------
+
+%\usepackage{mathptmx} % Use the Times font for serif text
+\usepackage{palatino} % Use the Palatino font for serif text
+
+% \usepackage{helvet} % Use the Helvetica font for sans serif text
+% \usepackage[default]{opensans} % Use the Open Sans font for sans serif text
+% \usepackage[default]{FiraSans} % Use the Fira Sans font for sans serif text
+\usepackage[default]{lato} % Use the Lato font for sans serif text
+
+%----------------------------------------------------------------------------------------
+%	SELECT INNER THEME
+%----------------------------------------------------------------------------------------
+
+% Inner themes change the styling of internal slide elements, for example: bullet points, blocks, bibliography entries, title pages, theorems, etc. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+% \useinnertheme{default}
+\useinnertheme{circles}
+% \useinnertheme{rectangles}
+% \useinnertheme{rounded}
+% \useinnertheme{inmargin}
+
+%----------------------------------------------------------------------------------------
+%	SELECT OUTER THEME
+%----------------------------------------------------------------------------------------
+
+% Outer themes change the overall layout of slides, such as: header and footer lines, sidebars and slide titles. Uncomment each theme in turn to see what changes it makes to your presentation.
+
+% \useoutertheme{default}
+% \useoutertheme{infolines}
+% \useoutertheme{miniframes}
+% \useoutertheme{smoothbars}
+% \useoutertheme{sidebar}
+% \useoutertheme{split}
+% \useoutertheme{shadow}
+% \useoutertheme{tree}
+% \useoutertheme{smoothtree}
+
+%\setbeamertemplate{footline} % Uncomment this line to remove the footer line in all slides
+%\setbeamertemplate{footline}[page number] % Uncomment this line to replace the footer line in all slides with a simple slide count
+
+%\setbeamertemplate{navigation symbols}{} % Uncomment this line to remove the navigation symbols from the bottom of all slides
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title[Escalation Detection]{Detecting Escalation Level from Speech with Transfer Learning and Acoustic-Lexical Information Fusion} % The short title in the optional parameter appears at the bottom of every slide, the full title in the main parameter is only on the title page
+
+% \subtitle{Optional Subtitle} % Presentation subtitle, remove this command if a subtitle isn't required
+
+\author[Ziang Zhou \and Yanze Xu \and Ming Li]{Ziang Zhou \and Yanze Xu \and Ming Li} % Presenter name(s), the optional parameter can contain a shortened version to appear on the bottom of every slide, while the main parameter will appear on the title slide
+
+\institute[DKU]{Duke Kunshan University \\ \smallskip \textit{ziang.zhou372@dukekunshan.edu.cn}} % Your institution, the optional parameter can be used for the institution shorthand and will appear on the bottom of every slide after author names, while the required parameter is used on the title slide and can include your email address or additional information on separate lines
+
+\date[\today]{Natural Language Processing Workshop \\ \today} % Presentation date or conference/meeting name, the optional parameter can contain a shortened version to appear on the bottom of every slide, while the required parameter value is output to the title slide
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\titlepage % Output the title slide, automatically created using the text entered in the PRESENTATION INFORMATION block above
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS SLIDE
+%----------------------------------------------------------------------------------------
+
+% The table of contents outputs the sections and subsections that appear in your presentation, specified with the standard \section and \subsection commands. You may either display all sections and subsections on one slide with \tableofcontents, or display each section at a time on subsequent slides with \tableofcontents[pausesections]. The latter is useful if you want to step through each section and mention what you will discuss.
+
+\begin{frame}
+	\frametitle{Content} % Slide title, remove this command for no title
+	
+	\tableofcontents % Output the table of contents (all sections on one slide)
+	%\tableofcontents[pausesections] % Output the table of contents (break sections up across separate slides)
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION BODY SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{Introduction} % Sections are added in order to organize your presentation into discrete blocks, all sections and subsections are automatically output to the table of contents as an overview of the talk but NOT output in the presentation as separate slides
+
+%------------------------------------------------
+\begin{frame}
+
+\begin{center}
+    \Huge 1. Introduction
+\end{center}
+    
+\end{frame}
+
+
+\subsection{Escalation Detection}
+
+\begin{frame}
+	\frametitle{Escalation Detection}
+	\framesubtitle{From Speech}
+	
+	\alert{Escalation} refers to the conflict elevating process in the middle of human-to-human conversations, which can be in the form of speech and text. Escalation Detection Task is a \alert{paralinguistic challenge} that aims to respond to such scenarios and pre-alert the administrators to take precautions.
+	
+	\bigskip
+	
+	Traditional escalation detection tasks heavily relied on the \alert{overlap detection} of human conversations. Statistical analysis and Machine Learning methods have been applied to the overlapping parts of conversation only, leaving out the rest of the conversation.
+	
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+
+\frametitle{Escalation Detection}
+\framesubtitle{From Speech}
+
+	Speech with no overlap can also contain valuable information, including
+	\begin{itemize}
+	    \item Semantic information
+	    \item Acoustic patterns that may indicate escalation
+	\end{itemize}
+	\bigskip
+	
+%	For large datasets, overlap detection and analysis might be helpful. For low-resource tasks this is not 
+
+\end{frame}
+
+%------------------------------------------------
+
+% \subsection{Escalation Detection}
+
+\begin{frame}
+	\frametitle{Escalation Detection}
+	\framesubtitle{From Text}
+	
+	
+    \alert{Textual escalation detection} has been widely applied to the customer service systems of e-commerce companies’ to alert and prevent potential conflicts in advance. 
+    \bigskip    
+    
+    Once an increasing escalation level of the customers is detected, special agents will take over and settle the dissatisfied customers. This mechanism can forestall potential conflict from worsening and protects the feelings of their customer service employees.
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Escalation Detection}
+	\framesubtitle{Datasets}
+	Both present unscripted interactions between actors, where friction appears as they spontaneously react to each other based on short scenario descriptions. The transcriptions are manually annotated afterward.
+	\begin{itemize}
+	    \item \textbf{TR} (\emph{Lefter et al. 2013}): Dataset of Aggression in Trains. Consists of 21 scenarios of unwanted behaviours in trains and train stations (e. g., harassment, theft, travelling without a ticket) played by 13 subjects. 
+	    \item \textbf{SD} (\emph{Lefter ey al. 2014}): Stress at Service Desk Dataset. Contains scenarios of problematic interactions situated at a service desk (e. g., a slow and incompetent employee while the customer has an urgent request) from 8 subjects.
+	\end{itemize}
+	\textbf{Challenge}: Total duration less that \alert{30} minutes.
+\end{frame}
+
+%------------------------------------------------
+\subsection{Transfer Learning}
+\begin{frame}
+	\frametitle{Transfer Learning}
+
+	\textbf{Motivation}: Gideon et al. demonstrate that emotion recognition tasks can benefit from advanced representations learned from paralinguistic tasks (\emph{Gideon et al. 2017}). This implies that emotional representation and paralinguistic features are interconnected to some degree.
+	
+	\bigskip
+	
+	\textbf{Assumption}: Emotional recognition tasks may as well benefit the escalation detection task.
+	
+	\bigskip
+	
+	There are many well-annotated speech corpora in emotion recognition; thus, we expect to raise the performance of the escalation task by applying transfer learning on speech emotion datasets.
+	
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Textual Embeddings}
+
+\begin{frame}
+	\frametitle{Textual Embeddings}
+	
+% 	\begin{block}{Block Title}
+% 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue.
+% 	\end{block}
+	
+	\begin{exampleblock}{Motivations}
+		\begin{itemize}
+		    \item Datasets contain transcribed conversation scripts in Dutch. The semantic meaning of these scripts can be indicators of potential escalation.
+		    \item Escalation can be inferred from textual modality as well.
+		\end{itemize}
+	\end{exampleblock}
+	
+	\begin{alertblock}{Challenges}
+	    Recordings are very short, mostly ranging from 3-7 seconds, thus scripts are often incomplete.
+	   % \begin{itemize}
+	   %     \item Recordings are very short, thus scripts are often incomplete.
+		  %  \item Errors in transcription.
+	   % \end{itemize}
+	\end{alertblock}
+	
+% 	\begin{block}{} % Block without title
+% 		Suspendisse tincidunt sagittis gravida. Curabitur condimentum, enim sed venenatis rutrum, ipsum neque consectetur orci.
+% 	\end{block}
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Contributions}
+
+\begin{frame}
+	\frametitle{Contributions}
+% 	\framesubtitle{Subtitle} % Optional subtitle
+	\begin{enumerate}
+	    \item The first work demonstrates that paralinguistic tasks, such as escalation detection can benefit from advanced emotional representations learned from speech emotion datasets.
+	    \item Proposed a pipeline for escalation level detection under extremely \alert{low resource} restrictions.
+	\end{enumerate}
+
+\end{frame}
+
+%------------------------------------------------
+
+\section{Methodology}
+
+\begin{frame}
+\begin{center}
+    \Huge 2. Methodology
+\end{center}
+    
+\end{frame}
+
+\subsection{Pipeline Overview}
+
+\begin{frame}
+	\frametitle{Pipeline Overview}
+% 	\framesubtitle{Subtitle} % Optional subtitle
+
+    \begin{figure}
+		\includegraphics[width=0.8\linewidth]{Images/npp.png}
+		\caption{Pipeline of Escalation Level Detection System}
+	\end{figure}
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Pretrain Speech Emotion Classifier}
+
+\begin{frame}
+	\frametitle{Pretrain Speech Emotion Classifier}
+	\framesubtitle{Datasets}
+	We selected four well-annotated speech emotional datasets for joint sentimental analysis.
+	\begin{itemize}
+	    \item \textbf{RAVDESS} (\emph{Livingstone et al. 2018}): A gender balanced multimodal dataset with 7356 pieces of data.
+	    \item \textbf{CREMA-D} (\emph{Cao et al. 2014}): A high quality visual-vocal dataset, containing 7442 recordings from 91 professional actors.
+	    \item \textbf{SAVEE} (\emph{Fayek et al. 2015}): A male-only audio dataset.
+	    \item \textbf{TESS} (\emph{Dupuis et al. 2010}): A female-only audio dataset.
+	\end{itemize}
+	Eventually, we gathered 2167 samples for \texttt{Angry}, \texttt{Happy} and \texttt{Sad} emotions each; 1795 samples for \texttt{Neutral}; 2047 samples for \texttt{Fearful}; 1863 samples for \texttt{Disgusted} and 593 samples for \texttt{Surprised} emotion.
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+    \frametitle{Pretrain Speech Emotion Classifier}
+    \framesubtitle{Features}
+    \textbf{Acoustic Features}
+    
+    Mel-frequency cepstral coefficient (MFCC) is one of the most common acoustic features. We vectorize the emotional audios by extracting their MFCC. The signal is first pre-emphasized with a coefficient of 0.97. The \emph{winlen} of each frame is set to 0.025, the \emph{winstep} parameter is set to 0.01; the window function is \emph{hamming} function; the \emph{nfilt} is set to 256. The frequency range is set from 50Hz to 8000Hz.
+
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Finetune on Escalation Datasets}
+
+\begin{frame}
+    \frametitle{Finetune on Escalation Datasets}
+    \framesubtitle{Voice Activity Detection (VAD)}
+    \textbf{WebRTC-VAD\footnote{https://webrtc.org/}}: Filter out the unvoiced segments in the audios from temporal domain.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\linewidth]{Images/vad.png}
+        \caption{Voice Activity Detection of WebRTC}
+        \label{fig:my_label}
+    \end{figure}
+
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+    \frametitle{Finetune on Escalation Datasets}
+    \framesubtitle{Features}
+    We apply the \textbf{WebRTC-VAD} toolkit prior to feature extraction for the escalation datasets.
+    
+    \textbf{Acoustic Features}: MFCC (512-d)
+    
+    \textbf{Linguistic Features}: Sentence-BERT (768-d)
+    
+    \textbf{Concat Features}: 1280-d
+
+
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Multi-lingual Sentence BERT}
+
+\begin{frame}
+	\frametitle{Multi-lingual Sentence BERT}
+	\framesubtitle{\emph{Reimers et al. 2020}}
+	
+	\begin{columns}
+	    \begin{column}{0.6\textwidth}
+	        \textbf{Goal}: Various input length, fix-sized output dense vector.
+	        \smallskip
+	        
+	        \textbf{Algorithm Steps:}
+	        \begin{enumerate}
+	            \item Tokenize input sentence
+	            \item Use transformer like BERT to produce contextualized word embeddings for all input tokens.
+	            \item Apply mean pooling to all word embeddings
+	            \item Obtain fix-sized sentence embeddings. 
+	        \end{enumerate}
+	        
+	    \end{column}
+	    \begin{column}{0.35\textwidth}
+	        \begin{figure}
+	            \centering
+	            \includegraphics{Images/SBERT_Architecture.png}
+	            \caption{Architecture}
+	            \label{fig:sbert}
+	        \end{figure}
+	    \end{column}
+	\end{columns}
+	\smallskip
+	\smallskip
+	
+	BERT\textsubscript{Base} uses 12 layers of transformers block with a hidden size of 768. Thus the output size of our sentence embedding is 768-d (\emph{Devlin et al. 2018}).
+\end{frame}
+
+%------------------------------------------------
+
+\section{Experiments}
+
+\begin{frame}
+\begin{center}
+    
+    \Huge 3. Experiments
+\end{center}
+    
+\end{frame}
+
+\subsection{Model Setup}
+\begin{frame}
+	\frametitle{Model Setup}
+	\framesubtitle{Frontend Encoder}
+	
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            The pretraining step on speech emotion datasets shares same \textbf{ResNet-18} architecture with escalation finetuning. 
+            \begin{itemize}
+                \item \textbf{Optimizer}: Stochastic Gradient Descent (SGD), nesterov momentum 0.8
+                \item \textbf{Loss Function}: Cross Entropy Loss
+                $$\sum_{c=1}^My_{o,c}\log(p_{o,c})$$
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+	        \begin{figure}
+	            \centering
+	            \includegraphics[height=0.7\textheight]{Images/resnet.png}
+	            \caption{Architecture}
+	            \label{fig:sbert}
+	        \end{figure}
+	    \end{column}
+    \end{columns}
+    \smallskip
+	
+% 	You can also use the \texttt{theorem}, \texttt{lemma}, \texttt{proof} and \texttt{corollary} environments.
+\end{frame}
+
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Model Setup}
+\framesubtitle{Backend Classifier}
+
+    Our work did not construct an end-to-end detection system. Instead, we employed Support Vector Machine (SVM) to conduct the backend classification task. 
+    \smallskip
+    
+    \textbf{Motivation}: Previous work under low resource restrictions has shown that simply replacing fully connected layers with linear SVMs can improve classification performance on multiple image classification tasks (\emph{Tang 2015}).
+
+    
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Evaluation Metric}
+\begin{frame}
+	\frametitle{Evaluation Metric}
+	
+	\begin{block}{UAR: Unweighted Average Recall}
+		In multiclass identification tasks, \alert{UAR} calculates the arithmetic mean of the \texttt{recall} scores of each class.
+	\end{block}
+	
+	\smallskip % Vertical whitespace
+	
+	\begin{exampleblock}{Calculation}
+		$$ Recall = \frac{TP}{TP+FN} $$
+		$$ UAR = \frac{\sum_{c=1}^NR_c}{N} $$
+	\end{exampleblock}
+	
+	\smallskip % Vertical whitespace
+	
+	where $R_c$ stands for the \texttt{Recall} score of class $c$, and $N$ stands for the number of classes.
+\end{frame}
+
+%------------------------------------------------
+
+\subsection{Experiment Results}
+
+\begin{frame}
+	\frametitle{Experiment Results}
+	\framesubtitle{VAD}
+	
+    \begin{table}[t]
+      \caption{Effects of Voice Activity Detection (VAD) on the devel set. \textbf{TE}: Textual Embeddings fused.}
+      \label{tab:VAD}
+      \centering
+      \begin{tabular}{ lclclcl }
+        \toprule
+        Model Name & Precision & UAR    & F1-Score      \\
+        \midrule
+        MFCC                & 0.640   & 0.675   & 0.647   \\
+        MFCC+VAD            & 0.675   & 0.710   & 0.688   \\
+        MFCC+TE             & 0.652   & 0.690   & 0.664   \\
+        MFCC+VAD+TE         & 0.676   & 0.721   & \textbf{0.691}   \\
+        Baseline Fusion     & -       & \textbf{0.722}   & - \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Experiment Results}
+	\framesubtitle{pre-trained Models}
+	
+    \begin{table}[t]
+      \caption{Effects of fine-tune of pre-trained ResNet-18 on devel set. \textbf{PR}: Pre-trained ResNet-18 applied. }
+      \label{tab:TL}
+      \centering
+      \begin{tabular}{ lclclcl }
+        \toprule
+        Model Name & Precision & UAR    & F1-Score      \\
+        \midrule
+        MFCC+VAD            & 0.675   & 0.710   & 0.688   \\
+        MFCC+VAD+PR         & 0.807   & \textbf{0.810}   & 0.788   \\
+        MFCC+VAD+PR+TE  & 0.807   & \textbf{0.810}   & 0.788   \\
+        Baseline Fusion    & -       & 0.722   & - \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Experiment Results}
+	\framesubtitle{Extra Attempts}
+	
+    \begin{table}[t]
+      \caption{Extra Experiments. \textbf{LS}: Label Smoothing. }
+      \label{tab:OtherExperiments}
+      \centering
+      \begin{tabular}{ lclclcl }
+        \toprule
+        Model Name & Precision & UAR    & F1-Score      \\
+        \midrule
+        Logfbank            & 0.670   & 0.743   & 0.684   \\
+        Logfbank+VAD        & 0.711   & 0.778   & 0.733 \\
+        MFCC+VAD+PR+LS      & 0.781   & \textbf{0.781}   & \textbf{0.761} \\
+        MFCC+VAD+ResNet-9   & 0.727   & 0.749   & 0.725   \\
+        Baseline Fusion     & -       & 0.722   & - \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Experiment Results}
+	\framesubtitle{Model Fusion}
+	To further leverage the model performance, we attempted three fusion strategies on the best three models, which are \emph{MFCC+VAD+PR}, \emph{MFCC+VAD+PR+LS}, \emph{Logfbank+VAD}. The results are shown as follow.
+    \begin{table}[t]
+      \caption{Model Fusion}
+      \label{tab:modelfuse}
+      \centering
+      \begin{tabular}{ lclclcl }
+        \toprule
+        Fusion Strategy & Precision & UAR    & F1-Score      \\
+        \midrule
+        Concatenate      & 0.783    & 0.800    & 0.779   \\
+        Mean             & 0.789    & 0.805    & 0.789 \\
+        Voting      & 0.810   & \textbf{0.815}   & \textbf{0.803} \\
+        Baseline Fusion     & -       & 0.722   & - \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+\end{frame}
+
+%------------------------------------------------
+
+\section{Conclusion}
+\begin{frame}
+\begin{center}
+    \Huge 4. Conclusion
+\end{center}
+    
+\end{frame}
+
+\begin{frame}
+	\frametitle{Conclusion}
+	
+% 	An example of the \texttt{\textbackslash cite} command to cite within the presentation:
+	\begin{enumerate}
+	    \item The multimodal pipeline we proposed for escalation level detection tasks under extremely low resource restrictions is effective.
+	    \item Validated that paralinguistic tasks, such as escalation detection, can benefit from advanced representations in speech emotion recognition tasks.
+	\end{enumerate}
+	
+	
+	\bigskip % Vertical whitespace
+	
+% 	This statement requires citation \cite{p1,p2}.
+\end{frame}
+
+%------------------------------------------------
+
+% \section{Referencing}
+
+% \begin{frame}
+% 	\frametitle{Citing References}
+	
+% 	An example of the \texttt{\textbackslash cite} command to cite within the presentation:
+	
+% 	\bigskip % Vertical whitespace
+	
+% 	This statement requires citation \cite{p1,p2}.
+% \end{frame}
+
+%------------------------------------------------
+
+% \begin{frame} % Use [allowframebreaks] to allow automatic splitting across slides if the content is too long
+% 	\frametitle{References}
+% % 	\bibliography{mybib}
+% 	\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below, you may need to use multiple columns and/or reduce the font size further if you have many references
+% 		\footnotesize % Reduce the font size in the bibliography
+		
+% 		\bibitem[Smith, 2022]{p1}
+% 			John Smith (2022)
+% 			\newblock Publication title
+% 			\newblock \emph{Journal Name} 12(3), 45 -- 678.
+			
+% 		\bibitem[Kennedy, 2023]{p2}
+% 			Annabelle Kennedy (2023)
+% 			\newblock Publication title
+% 			\newblock \emph{Journal Name} 12(3), 45 -- 678.
+% 	\end{thebibliography}
+% \end{frame}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGMENTS SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Acknowledgements}
+	
+	\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+		\begin{column}{0.45\textwidth} % Left column width
+			\textbf{SMIIP Lab}
+			\begin{itemize}
+				\item Ziang Zhou
+				\item Yanze Xu
+				\item Ming Li
+			\end{itemize}
+% 			\textbf{Cook Lab}
+% 			\begin{itemize}
+% 				\item Margaret
+% 				\item Jennifer
+% 				\item Yuan
+% 			\end{itemize}
+		\end{column}		
+		\begin{column}{0.5\textwidth} % Right column width
+			\textbf{Funding}
+			\begin{itemize}
+				\item National Natural Science Foundation of China
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	CLOSING SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[plain] % The optional argument 'plain' hides the headline and footline
+	\begin{center}
+		{\Huge The End}
+		
+		\bigskip\bigskip % Vertical whitespace
+		
+		{\LARGE Questions? Comments?}
+	\end{center}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 
